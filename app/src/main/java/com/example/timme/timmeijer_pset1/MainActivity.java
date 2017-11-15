@@ -17,15 +17,56 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         imageArms = findViewById(R.id.imageArms);
+        imageArms.setVisibility(View.INVISIBLE);
         imageEars = findViewById(R.id.imageEars);
+        imageEars.setVisibility(View.INVISIBLE);
         imageMust = findViewById(R.id.imageMust);
+        imageMust.setVisibility(View.INVISIBLE);
         imageNose = findViewById(R.id.imageNose);
+        imageNose.setVisibility(View.INVISIBLE);
         imageShoes = findViewById(R.id.imageShoes);
+        imageShoes.setVisibility(View.INVISIBLE);
         imageGlasses = findViewById(R.id.imageGlasses);
+        imageGlasses.setVisibility(View.INVISIBLE);
         imageEyebrows = findViewById(R.id.imageEyebrows);
+        imageEyebrows.setVisibility(View.INVISIBLE);
         imageEyes = findViewById(R.id.imageEyes);
+        imageEyes.setVisibility(View.INVISIBLE);
         imageMouth = findViewById(R.id.imageMouth);
+        imageMouth.setVisibility(View.INVISIBLE);
         imageHat = findViewById(R.id.imageHat);
+        imageHat.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("Arms", imageArms.getVisibility());
+        outState.putInt("Ears", imageEars.getVisibility());
+        outState.putInt("Hat", imageHat.getVisibility());
+        outState.putInt("Shoes", imageShoes.getVisibility());
+        outState.putInt("Eyes", imageEyes.getVisibility());
+        outState.putInt("Eyebrows", imageEyebrows.getVisibility());
+        outState.putInt("Nose", imageNose.getVisibility());
+        outState.putInt("Mouth", imageMouth.getVisibility());
+        outState.putInt("Glasses", imageGlasses.getVisibility());
+        outState.putInt("Must", imageMust.getVisibility());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        imageArms.setVisibility(savedInstanceState.getInt("Arms"));
+        imageEars.setVisibility(savedInstanceState.getInt("Ears"));
+        imageMust.setVisibility(savedInstanceState.getInt("Must"));
+        imageNose.setVisibility(savedInstanceState.getInt("Nose"));
+        imageShoes.setVisibility(savedInstanceState.getInt("Shoes"));
+        imageGlasses.setVisibility(savedInstanceState.getInt("Glasses"));
+        imageEyebrows.setVisibility(savedInstanceState.getInt("Eyebrows"));
+        imageEyes.setVisibility(savedInstanceState.getInt("Eyes"));
+        imageMouth.setVisibility(savedInstanceState.getInt("Mouth"));
+        imageHat.setVisibility(savedInstanceState.getInt("Hat"));
     }
 
     // on checkbox click
